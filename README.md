@@ -1,5 +1,5 @@
 # Browserify Buffer
-Combine Browserify and Buffer into one wrapper for streams.
+Combine Browserify and Buffer into one wrapper for Gulp Vinyl streams.
 
 Browserify's API can used for working with streams, but by itself it is not compatible for receiving and sending buffers, like the Vinyl buffers used in Gulp. One solutions is to use the Gulp Recipe here: https://github.com/gulpjs/gulp/blob/master/docs/recipes/browserify-transforms.md . However it is a multiple step process. First you need to create the stream in isolation using `bundle()` (which uses a non-Vinyl buffer). Then pipe the stream to `buffer()` to convert it to a useful Vinyl buffer that Gulp can deal with.
 
