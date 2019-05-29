@@ -58,3 +58,41 @@ gulp.task('javascript', function () {
 
 
 ```
+
+### Added in v1.1.0
+
+Now supports using file contents instead of the file path. Just add the third argument passed as `true`. Previously you needed to use https://github.com/pfaciana/browserify-string-to-buffer for this functionality.
+
+``` js
+
+var browserifyBuffer = require('browserify-buffer');
+var babelify = require('babelify');
+
+gulp.task('javascript', function () {
+	return gulp.src('./src/**/*.js')
+		.pipe(browserifyBuffer([
+			babelify.configure({presets: ["@babel/preset-env"]}),
+		], {}, true))
+		.pipe(gulp.dest('./dist/'));
+});
+
+
+```
+
+Alternatively you can use `require('browserify-buffer').contents` to auto-set the third argument to `true`. The following example is identical to the example above.
+
+``` js
+
+var browserifyBuffer = require('browserify-buffer');
+var babelify = require('babelify');
+
+gulp.task('javascript', function () {
+	return gulp.src('./src/**/*.js')
+		.pipe(browserifyBuffer.contents([
+			babelify.configure({presets: ["@babel/preset-env"]}),
+		]))
+		.pipe(gulp.dest('./dist/'));
+});
+
+
+```
