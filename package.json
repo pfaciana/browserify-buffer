@@ -1,6 +1,6 @@
 {
 	"name": "browserify-buffer",
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"description": "Combine Browserify and Buffer into one wrapper for streams.",
 	"main": "index.js",
 	"repository": {
@@ -20,11 +20,11 @@
 	"author": "Phil Faciana <phil@renderdev.com> (https://renderdev.com/)",
 	"license": "MIT",
 	"homepage": "https://github.com/pfaciana/browserify-buffer",
-	"devDependencies": {
+	"devDependencies": {},
+	"dependencies": {
 		"browserify": "^16",
 		"clean-browserify-string": "^1",
 		"through2": "^3",
 		"vinyl-buffer": "^1"
-	},
-	"dependencies": {}
+	}
 }
