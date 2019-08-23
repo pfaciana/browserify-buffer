@@ -70,6 +70,7 @@ var babelify = require('babelify');
 
 gulp.task('javascript', function () {
 	return gulp.src('./src/**/*.js')
+		.pipe(somePackageThatReturnsAVirtualFileVinylBuffer())
 		.pipe(browserifyBuffer([
 			babelify.configure({presets: ["@babel/preset-env"]}),
 		], {}, true))
@@ -88,6 +89,7 @@ var babelify = require('babelify');
 
 gulp.task('javascript', function () {
 	return gulp.src('./src/**/*.js')
+		.pipe(somePackageThatReturnsAVirtualFileVinylBuffer())
 		.pipe(browserifyBuffer.contents([
 			babelify.configure({presets: ["@babel/preset-env"]}),
 		]))
